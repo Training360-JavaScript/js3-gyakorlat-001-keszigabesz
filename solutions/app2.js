@@ -11,14 +11,27 @@ const HU = {
     date(date) {
         return new Intl.DateTimeFormat('hu-HU').format(date);
     },
-    currency(amount) {
+    curreny(amount) {
         return Intl.NumberFormat('hu-HU', {
                 style: 'currency',
                 currency: 'HUF'
             })
             .format(amount);
     },
-    list() {},
+    list(array) {
+        let string = "";
+        let stringEnd = ", ";
+        for (let i = 0; i < array.length; i++) {
+            if (i === array.length - 1) {
+                stringEnd = "";
+            }
+            if (i === array.length - 2) {
+                stringEnd = " és ";
+            }
+            string += array[i] + stringEnd;
+        }
+        return string;
+    },
 }
 
 
